@@ -7,9 +7,9 @@ COLOR_C = "#C4B5FD"
 COLOR_D = "#1a1a2e"
 
 # 🖼️ Canvas
-MIRROR_CENTER = (299, 229)  # symmetry axis
-WIDTH, HEIGHT = MIRROR_CENTER[0] * 2, MIRROR_CENTER[1] * 2
-BAR_WIDTH = 50
+MIRROR_CENTER = (290, 229)  # symmetry axis
+WIDTH, HEIGHT = MIRROR_CENTER[0] * 2, MIRROR_CENTER[1] * 2.1
+BAR_WIDTH = 60
 
 dwg = svgwrite.Drawing("logo.svg", size=(f"{WIDTH}px", f"{HEIGHT}px"), profile="tiny")
 
@@ -84,15 +84,18 @@ def draw_symmetric(func, *args, **kwargs):
 
 # Symmetric shapes
 
-
-draw_symmetric(draw_rotated_rect, insert=(0, 111), size=(BAR_WIDTH, 200), fill=COLOR_B, stroke=COLOR_B, angle=0)
-draw_symmetric(draw_right_triangle, insert=(0, 316), size=(70, 70), fill=COLOR_C, stroke=COLOR_C)
-draw_symmetric(draw_rotated_rect, insert=(4, 67), size=(100, BAR_WIDTH), fill=COLOR_B, stroke=COLOR_B, angle=-45)
-draw_symmetric(draw_rotated_rect, insert=(146, 344), size=(100, BAR_WIDTH), fill=COLOR_B, stroke=COLOR_B, angle=-45)
-draw_symmetric(draw_rotated_rect, insert=(-11, 345), size=(200, BAR_WIDTH), fill=COLOR_C, stroke=COLOR_C, angle=45)
+# Lateral
+draw_symmetric(draw_rotated_rect, insert=(0, 116), size=(BAR_WIDTH, 200), fill=COLOR_B, stroke=COLOR_B, angle=0)
+draw_symmetric(draw_right_triangle, insert=(0, 316), size=(BAR_WIDTH+(BAR_WIDTH*(2/5)), BAR_WIDTH+(BAR_WIDTH*(2/5))), fill=COLOR_C, stroke=COLOR_C)
+# Top
+draw_symmetric(draw_rotated_rect, insert=(4, 72), size=(100, BAR_WIDTH), fill=COLOR_B, stroke=COLOR_B, angle=-45)
+# Middle
+draw_symmetric(draw_rotated_rect, insert=(146, 325), size=(100, BAR_WIDTH), fill=COLOR_B, stroke=COLOR_B, angle=-45)
+# Bottom
+draw_symmetric(draw_rotated_rect, insert=(-11, 333), size=(200, BAR_WIDTH), fill=COLOR_C, stroke=COLOR_C, angle=45)
 
 # Long central bar
-draw_rotated_rect(dwg, insert=(4, 204), size=(590, BAR_WIDTH), fill=COLOR_A, stroke=COLOR_A, angle=45)
+draw_rotated_rect(dwg, insert=(4, 198), size=(575, BAR_WIDTH), fill=COLOR_A, stroke=COLOR_A, angle=45)
 
 # Save SVG
 dwg.save()
