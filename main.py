@@ -1,15 +1,14 @@
 import svgwrite
 
 # 🎨 Colors
-COLOR_A = "#a9a9d4"
-COLOR_B = "#ffffff"
-COLOR_C = "#C4B5FD"
-COLOR_D = "#1a1a2e"
+COLOR_A = "#6f36d4"
+COLOR_B = "#c3b3fd"
+COLOR_C = "#a179f5"
 
 # 🖼️ Canvas
 MIRROR_CENTER = (290, 229)  # symmetry axis
 WIDTH, HEIGHT = MIRROR_CENTER[0] * 2, MIRROR_CENTER[1] * 2.1
-BAR_WIDTH = 70
+BAR_WIDTH = 90
 
 dwg = svgwrite.Drawing("logo.svg", size=(f"{WIDTH}px", f"{HEIGHT}px"), profile="tiny")
 
